@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from "./pages/homepage/HomePage";
 import NavigationBar from "./components/layout/navbar/NavigationBar";
 import SignUpPage from "./pages/signup/SignUpPage";
+import LoginPage from "./pages/login/LoginPage";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignUpPage />
+        </Route>
+        <Route path="/login">
+          <LoginPage />
         </Route>
       </Switch>
     </div>

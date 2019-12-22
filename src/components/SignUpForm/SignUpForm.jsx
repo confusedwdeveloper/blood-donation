@@ -29,13 +29,14 @@ export default class SignUpForm extends Component {
   render() {
     return (
       <Form
+        className="text-left"
         noValidate
         validated={this.state.validated}
         onSubmit={this.handleSubmit}
       >
         <Form.Row>
           <Form.Group as={Col} xs={12} lg={6} controlId="first-name">
-            <Form.Label srOnly>First Name</Form.Label>
+            <Form.Label>First Name</Form.Label>
             <Form.Control
               required
               type="text"
@@ -49,7 +50,7 @@ export default class SignUpForm extends Component {
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} xs={12} lg={6} controlId="last-name">
-            <Form.Label srOnly>Last Name</Form.Label>
+            <Form.Label>Last Name</Form.Label>
             <Form.Control
               required
               type="text"
@@ -63,7 +64,7 @@ export default class SignUpForm extends Component {
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} xs={12} controlId="email">
-            <Form.Label srOnly>Email address </Form.Label>
+            <Form.Label>Email address </Form.Label>
             <Form.Control
               required
               type="email"
@@ -77,7 +78,7 @@ export default class SignUpForm extends Component {
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} xs={12} controlId="password">
-            <Form.Label srOnly>Password</Form.Label>
+            <Form.Label>Password</Form.Label>
             <Form.Control
               name="password"
               required
@@ -91,7 +92,7 @@ export default class SignUpForm extends Component {
             </Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
-        <CustomButton className="float-left px-3" type="submit" variant="info">
+        <CustomButton className="px-3" type="submit" variant="info">
           Sign Up
         </CustomButton>
       </Form>

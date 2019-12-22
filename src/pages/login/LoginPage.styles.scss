@@ -1,0 +1,12 @@
+.login-age--para {
+  text-align: justify;
+}
+#login-container {
+  @media (max-width: 991px) {
+    min-width: 25vh;
+
+    .login-age--para {
+      text-align: center;
+    }
+  }
+}

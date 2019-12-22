@@ -2,10 +2,10 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
-import "./SignUpPage.styles.scss";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import { Link } from "react-router-dom";
+
+import "./SignUpPage.styles.scss";
 
 export default function SignUpPage() {
   return (
@@ -26,7 +26,7 @@ export default function SignUpPage() {
             Already have an account? Sign In
           </Link>
         </Col>
-        <Col xs={12} lg={{ span: 6, offset: 2 }}>
+        <Col xs={12} lg={{ span: 6, offset: 2 }} className="mt-3 mt-lg-0">
           <SignUpForm />
         </Col>
       </Row>
