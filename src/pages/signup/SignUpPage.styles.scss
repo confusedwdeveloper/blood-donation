@@ -1,0 +1,15 @@
+.text-container {
+  min-height: 35vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  p.signup-form--para {
+    color: #1b2d45;
+  }
+}
+a.link-button {
+  color: #00214d;
+}
