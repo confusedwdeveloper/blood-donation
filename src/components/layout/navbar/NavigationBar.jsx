@@ -3,10 +3,11 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
+import { auth } from "../../../firebase/firebase.utils";
 
 import "./NavigationBar.styles.scss";
 
-export default function NavigationBar({ loggedIn }) {
+export default function NavigationBar({ user }) {
   return (
     <Navbar expand="lg" className="bg-secondary" variant="dark">
       <Container>
@@ -17,7 +18,7 @@ export default function NavigationBar({ loggedIn }) {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          {loggedIn ? (
+          {user ? (
             <Nav as="div" className="ml-lg-auto">
               <Nav.Link as={Link} className="link" to="/register">
                 Register to donate
@@ -44,3 +45,8 @@ export default function NavigationBar({ loggedIn }) {
     </Navbar>
   );
 }
+
+// Set up event listener for sign up handler . I will try if async await works
+const signUp = async () => {
+  // I will fill it later after I am done with homepage and dashboard
+};
