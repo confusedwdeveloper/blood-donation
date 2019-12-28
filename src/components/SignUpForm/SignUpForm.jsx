@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
+import { isSignUpInputsValid } from "../../firebase/signInFunctions";
+import { auth, firestore } from "../../firebase/firebase.utils";
 
 import "./SignUpForm.styles.scss";
 import CustomButton from "../layout/custom-button/CustomButton";
@@ -13,9 +15,34 @@ export default class SignUpForm extends Component {
     email: "",
     password: ""
   };
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
-    console.log(this.state);
+    if (!isSignUpInputsValid(this.state)) {
+      await this.setState({ validated: true });
+      return;
+    }
+    try {
+      const { email, password, firstName, lastName } = this.state;
+      const userCredential = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      const { user } = userCredential;
+      const documentReference = firestore.doc(`users/${user.uid}`);
+      const snapShot = documentReference.get();
+      !snapShot.exists &&
+        (await documentReference.set({
+          email,
+          displayName: firstName + " " + lastName,
+          createdAt: new Date()
+        }));
+      await user.sendEmailVerification();
+      user.updateProfile({
+        displayName: firstName + " " + lastName
+      });
+    } catch (e) {
+      console.log(`Error: ${e.message}`);
+    }
   };
   handleChange = e => {
     const { name, value } = e.target;
@@ -88,7 +115,7 @@ export default class SignUpForm extends Component {
             />
             <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             <Form.Control.Feedback type="invalid">
-              Please enter valid password
+              Please enter valid and strong password
             </Form.Control.Feedback>
           </Form.Group>
         </Form.Row>
