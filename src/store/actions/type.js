@@ -1,2 +1,2 @@
-export const loggedIn = "LOGGED_IN";
-export const user = "USER";
+// export const loggedIn = "LOGGED_IN";
+export const USER = "USER";

@@ -1,24 +1,18 @@
-import { user, loggedIn } from "../actions/type";
+import { USER } from "../actions/type";
 
 const initialState = {
-  user: null,
-  loggedIn: false
+  user: null
 };
 
 const authReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case user: {
+    case USER: {
       return {
         ...state,
         user: payload
       };
     }
-    case loggedIn: {
-      return {
-        ...state,
-        loggedIn: payload
-      };
-    }
+
     default: {
       return {
         ...state
