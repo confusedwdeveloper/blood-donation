@@ -60,6 +60,9 @@ export default class SignInForm extends Component {
         <CustomButton className="px-3" type="submit" variant="info">
           Sign In
         </CustomButton>
+        <button className="google-signin" type="button">
+          SIGN IN WITH GOOGLE
+        </button>
       </Form>
     );
   }

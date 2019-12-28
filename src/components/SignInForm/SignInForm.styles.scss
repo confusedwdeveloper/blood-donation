@@ -1,0 +1,16 @@
+.google-signin {
+  color: #eee;
+  background: #ff5470;
+  padding: 0.5rem 1rem;
+  margin-left: 2rem;
+  transition: all 0.2s ease-in;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+    background: darken(#ff5470, 10%);
+    color: #fff;
+  }
+}

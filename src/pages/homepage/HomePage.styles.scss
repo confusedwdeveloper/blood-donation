@@ -1,0 +1,26 @@
+.home-page {
+  background: url("../../assets/Bg.png");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #eee;
+
+  .col-introduction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    position: relative;
+  }
+
+  .col-image {
+    .image-container {
+      height: auto;
+      width: 100%;
+      // margin-top: 7rem;
+      position: absolute;
+      top: 25%;
+    }
+  }
+}
