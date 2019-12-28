@@ -27,7 +27,7 @@ function NavigationBar({ user }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           {user ? (
             <Nav as="div" className="ml-lg-auto">
-              <Nav.Link as={Link} className="link" to="/register">
+              <Nav.Link as={Link} className="link" to="/dashboard">
                 Register to donate
               </Nav.Link>
               <Nav.Link onClick={handleSignOut} as="div" className="link">

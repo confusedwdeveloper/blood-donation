@@ -32,12 +32,10 @@ class App extends React.Component {
         <NavigationBar />
         <Switch>
           <Route path="/" exact>
-            {user ? <Redirect to="/dashboard" /> : <HomePage />}
+            <HomePage />
           </Route>
           <Route path="/signup">{!user ? <SignUpPage /> : <Dashboard />}</Route>
-          <Route path="/login">
-            <LoginPage />
-          </Route>
+          <Route path="/login">{!user ? <LoginPage /> : <Dashboard />}</Route>
           <Route to="/dashboard">
             {user ? <Dashboard /> : <Redirect to="/" />}
           </Route>

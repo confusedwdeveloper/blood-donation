@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import CustomButton from "../layout/custom-button/CustomButton";
+import { auth } from "../../firebase/firebase.utils";
 
 import "./SignInForm.styles.scss";
 
@@ -13,7 +14,11 @@ export default class SignInForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    const { email, password } = this.state;
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .catch(err => console.log(err));
   };
   handleChange = e => {
     const { name, value } = e.target;
