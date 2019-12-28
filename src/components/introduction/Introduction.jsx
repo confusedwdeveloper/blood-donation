@@ -12,7 +12,7 @@ export default function Introduction() {
         with anyone.
       </p>
 
-      <Link className="homepage-link" to="/signup">
+      <Link className="homepage-link" to="/login">
         SIGN IN WITH GOOGLE
       </Link>
     </section>
