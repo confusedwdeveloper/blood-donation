@@ -2,12 +2,19 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { auth } from "../../../firebase/firebase.utils";
+import { connect } from "react-redux";
 
 import "./NavigationBar.styles.scss";
 
-export default function NavigationBar({ user }) {
+function NavigationBar({ user }) {
+  const history = useHistory();
+  const handleSignOut = async e => {
+    await auth.signOut();
+    history.push("/");
+  };
+
   return (
     <Navbar expand="lg" className="bg-secondary" variant="dark">
       <Container>
@@ -23,11 +30,11 @@ export default function NavigationBar({ user }) {
               <Nav.Link as={Link} className="link" to="/register">
                 Register to donate
               </Nav.Link>
-              <Nav.Link as="div" className="link">
+              <Nav.Link onClick={handleSignOut} as="div" className="link">
                 Logout
               </Nav.Link>
               <Nav.Link as="span" className="link ml-lg-5">
-                Hello Darshan
+                Hello {user.displayName}
               </Nav.Link>
             </Nav>
           ) : (
@@ -46,7 +53,6 @@ export default function NavigationBar({ user }) {
   );
 }
 
-// Set up event listener for sign up handler . I will try if async await works
-const signUp = async () => {
-  // I will fill it later after I am done with homepage and dashboard
-};
+const mapStateToProps = state => ({ user: state.auth.user });
+
+export default connect(mapStateToProps, null)(NavigationBar);
